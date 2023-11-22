@@ -19,9 +19,10 @@ metadata:
   name: nodehelloworld.example.com-service
 spec:
   ports:
-  - port: 31001
+  - port: 31001 #is the port on which service is exposed within the cluster
     nodePort: 31001
-    targetPort: nodejs-port
+    targetPort: nodejs-port #is the port on which traffice is forwarded to the pods that match the service's selector. 
+    #It is the port on which the application in the pods is listening
     protocol: TCP
   selector:
     app: helloworld
