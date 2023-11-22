@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodehelloworld.example.com-pod
+  labels:
+    app: helloworld
+spec:
+  containers:
+  - name: k8s-demo
+    image: wardviaene/k8s-demo
+    ports:
+    - name: nodejs-port
+      containerPort: 3000
+      
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nodehelloworld.example.com-service
+spec:
+  ports:
+  - port: 31001
+    nodePort: 31001
+    targetPort: nodejs-port
+    protocol: TCP
+  selector:
+    app: helloworld
+  type: NodePort
+
