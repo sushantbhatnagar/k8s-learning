@@ -12,9 +12,10 @@ spec:
     - name: nodejs-port
       containerPort: 3000
       volumeMounts:
-      - mountPath: /host-path
-        name: host-volumes
+      - name: host-volume
+        mountPath: /host-path
   volumes:
   - name: host-volume
     hostPath:
-      path: /volumes
+      path: /volumes/vol.txt
+      type: FileOrCreate
