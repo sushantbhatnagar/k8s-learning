@@ -17,5 +17,5 @@ spec:
   volumes:
   - name: host-volume
     hostPath:
-      path: /volumes/vol.txt
+      path: /test-volumes/vol.txt
       type: FileOrCreate
