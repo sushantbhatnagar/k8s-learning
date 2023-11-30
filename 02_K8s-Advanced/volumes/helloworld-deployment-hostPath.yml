@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld-hostPath
+  name: helloworld-deployment
 spec:
   replicas: 1
   selector:
-    matchlabels:
+    matchLabels:
       app: helloworld
   template:
     metadata:
@@ -18,11 +18,11 @@ spec:
         ports:
         - name: nodejs-port
           containerPort: 3000
-		volumeMounts:
-		- name: host-volumes
-		  mountPath: /app/hostdata	      
+        volumeMounts:
+        - mountPath: /app/myvol
+          name: myvolume
       volumes:
-      - name: host-volumes
+      - name: myvolume
         hostPath:
-          path: /test-volumes
-		  type: DirectoryOrCreate
+          path: /data
+          type: DirectoryOrCreate
