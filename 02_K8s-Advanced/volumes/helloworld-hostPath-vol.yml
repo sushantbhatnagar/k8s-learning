@@ -13,9 +13,9 @@ spec:
       containerPort: 3000
     volumeMounts:
     - name: host-volume
-      mountPath: /host-path
+      mountPath: /app/test-volumes
   volumes:
   - name: host-volume
     hostPath:
-      path: /test-volumes/vol.txt
-      type: FileOrCreate
+      path: /test-volumes
+      
