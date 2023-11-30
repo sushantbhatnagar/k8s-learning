@@ -23,6 +23,6 @@ spec:
           name: myvolume
       volumes:
       - name: myvolume
-      awsElasticBlockStore:
-        volumeID: vol-0177f48aab0d95648
+        awsElasticBlockStore:
+          volumeID: vol-0177f48aab0d95648
       
